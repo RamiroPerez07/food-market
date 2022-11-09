@@ -195,6 +195,7 @@ body{
 
 .section-style1 h3{
     justify-self: start;
+    font-size: var(--fs-medium1);
 }
 
 #recommendations-card-container{
