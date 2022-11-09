@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nucba Zappi</title>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--Pop up-->
+    <div id="background-popup">
+        <div id="shopping-cart-frame">
+            <div id="quit-btn"></div>
+            <section id="product-list-section">
+                <h3>Tus productos</h3>
+                <div id="product-list-container"></div>
+            </section>
+            <section id="summary">
+                <div id="subtotal-container">
+                    <p>Subtotal</p>
+                    <span id="subtotal-value"></span>
+                    <p>Envio</p>
+                    <span id="shipping-value"></span>
+                </div>
+                <div id="separator"></div>
+                <p>Total</p>
+                <span id="total-value"></span>
+            </section>
+            <a href="#">Comprar</a>
+        </div>
+    </div>
+    <!--End Pop up-->
+
+    <header id="main-header">
+        <div id="page-icon"></div>
+        <div id="burguer-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="navbar-frame">
+            <ul id="navbar-list">
+                <li class="navbar-list-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="navbar-list-item">
+                    <a href="#">🛒</a>
+                </li>
+                <li class="navbar-list-item">
+                    <a href="#">👽</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section id="hero-section">
+            <div id="hero-left">
+                <div>
+                    <h1 class="main-title">Si tenes Zappi,</h1>
+                    <h2 class="main-subtitle">tenes Nucba.</h2>
+                </div>
+                <p class="p-hero">Buscá lo que quieras y nucba te quedes sin comida</p>
+                <a href="#" class="hero-btn">Ver más</a>
+            </div>
+            <div id="hero-right">
+                <div id="hero-img"></div>
+            </div>
+        </section>
+        <section id="recommendations-section" class="section-style1">
+            <h3>Hoy te recomendamos</h3>
+            <div id="recommendations-card-container" class="container">
+                <!--Template card reccomendation
+                <div class="recommendation-card">
+                    <div class="recommendation-img"></div>
+                    <h2 class="recommendation-food-name">Lorem ipsum</h2>
+                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
+                    <span class="recommendation-price">Lorem.</span>
+                    <button class="btn-style recommendation-btn">Comprar</button>
+                </div>-->
+                <div class="recommendation-card">
+                    <div class="recommendation-img"></div>
+                    <h2 class="recommendation-food-name">Lorem ipsum</h2>
+                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
+                    <span class="recommendation-price">Lorem.</span>
+                    <button class="btn-style recommendation-btn">Comprar</button>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-img"></div>
+                    <h2 class="recommendation-food-name">Lorem ipsum</h2>
+                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
+                    <span class="recommendation-price">Lorem.</span>
+                    <button class="btn-style recommendation-btn">Comprar</button>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-img"></div>
+                    <h2 class="recommendation-food-name">Lorem ipsum</h2>
+                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
+                    <span class="recommendation-price">Lorem.</span>
+                    <button class="btn-style recommendation-btn">Comprar</button>
+                </div>
+            </div>
+        </section>
+        <section id="categories-section" class="section-style1">
+            <h3>Categorías</h3>
+            <div id="categories-card-container" class="container">
+                <!--Template categories card
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>-->
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+                <div class="categories-card">
+                    <div class="categories-img"></div>
+                    <h2 class="categories-name">Lorem.</h2>
+                    <div class="categories-decoration"></div>
+                </div>
+            </div>
+        </section>
+        <section id="more-popular-section" class="section-style1">
+            <h3>Los mas populares</h3>
+            <div id="more-popular-card-container" class="container">
+                <!--Template more popular card
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>-->
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+                <div class="more-popular-card">
+                    <div class="more-popular-img"></div>
+                    <h2 class="more-popular-food-name">Lorem, ipsum.</h2>
+                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
+                    <span class="more-popular-price">Lorem.</span>
+                    <button class="more-popular-btn btn-style">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <ul id="footer-list">
+            <li>
+                <a href="#" class="footer-links">Términos de uso</a>
+            </li>
+            <li>
+                <a href="#" class="footer-links">Trabajá con nosotros</a>
+            </li>
+            <li>
+                <a href="#" class="footer-links">Soporte</a>
+            </li>
+        </ul>
+        <p id="sign">Coded by <a href="https://github.com/RamiroPerez07" target="_blank">Ramiro Perez</a></p>
+    </footer>
+    <!--Custom JS-->
+    <script src="./index.js"></script>
+</body>
+</html>
