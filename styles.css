@@ -6,8 +6,11 @@
 }
 
 :root{
-    --colorBackground: #0f0f0f;
-    --colorWhite: #ffffff;
+    --colorBackground: #252525;
+    --yellow: #ff8d0c;
+    --red: #ff1153;
+    --grey: #2d3640;
+    --colorWhite: #e2e2e2;
     --fs-small0: 0.8rem;
     --fs-small1: 0.9rem;
     --fs-medium0: 1rem;
@@ -59,7 +62,7 @@ body{
     grid-auto-rows: min-content;
     grid-template-columns: 1fr;
     justify-items: center;
-    /*background-color: var(--colorBackground);*/
+    /*background-color:var(--colorBackground);*/
     position: relative;
 }
 
@@ -267,8 +270,8 @@ body{
     border-radius: 5px;
     padding: 5px;
     color: var(--colorWhite);
-    background-color: var(--colorBackground);
-    border: 1px var(--colorWhite) solid;
+    background: linear-gradient(45deg, var(--yellow), var(--red));
+    border: none;
     cursor: pointer;
 }
 
