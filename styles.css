@@ -618,6 +618,7 @@ h3{
     font-size: var(--fs-medium0);
     font-weight: var(--fw-bold);
     color: var(--colorWhite);
+    justify-self: start;
 }
 
 .more-popular-description{
@@ -626,6 +627,7 @@ h3{
     font-size: var(--fs-small1);
     font-weight: var(--fw-light);
     color: var(--colorWhite);
+    justify-self: start;
 }
 
 .more-popular-price{
@@ -634,6 +636,7 @@ h3{
     font-size: var(--fs-medium0);
     font-weight: var(--fw-bold);
     color: var(--colorWhite);
+    justify-self: start;
 }
 
 .more-popular-btn{
