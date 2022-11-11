@@ -4,7 +4,8 @@ const shoppingCart = document.getElementById("shopping-cart-popup");
 const hideShoppingCartBtn = document.getElementById("quit-btn");
 const shoppingCartFrame = document.getElementById("shopping-cart-frame")
 const burguerBtn = document.getElementById("burguer-btn");
-const navbarFrame = document.getElementById("navbar-frame")
+const navbarFrame = document.getElementById("navbar-frame");
+const quitMenuBtn = document.getElementById("quit-menu")
 
 function toggleShoppingCart(){
     console.log("entre aca")
@@ -17,11 +18,18 @@ function showMenu(){
     navbarFrame.classList.toggle("show-nav");
 }
 
+function hideMenu(){
+    navbarFrame.classList.remove("show-nav");
+}
+
 
 function init(){
     showShoppingCartBtn.addEventListener("click", toggleShoppingCart)
     hideShoppingCartBtn.addEventListener("click", toggleShoppingCart)
-    burguerBtn.addEventListener("click", showMenu)
+    burguerBtn.addEventListener("click", showMenu);
+    quitMenuBtn.addEventListener("click", showMenu);
+    window.addEventListener("scroll", hideMenu)
+    navbarFrame.addEventListener("click", hideMenu)
 }
 
 init();

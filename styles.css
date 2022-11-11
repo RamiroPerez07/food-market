@@ -25,6 +25,26 @@
     --fw-light: 300;
 }
 
+html{
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-items: center;
+}
+
+body{
+    width: 100%;
+    max-width: 1980px;
+    height: auto;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    background-color:var(--colorMainBackground);
+    position: relative;
+}
+
 a{
     text-decoration: none;
 }
@@ -33,7 +53,7 @@ a{
 
 #shopping-cart-popup{
     display: none; /*none para ocultar*/
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -75,7 +95,7 @@ a{
     }
 }
 
-#quit-btn{
+.quit-btn{
     height: 20px;
     width: 20px;
     background: linear-gradient(45deg, var(--yellow), var(--red));
@@ -87,7 +107,7 @@ a{
     position: relative;
 }
 
-#quit-btn::before{
+.quit-btn::before{
     content: "";
     width: 3px;
     height: 15px;
@@ -99,7 +119,7 @@ a{
     top: 14%;
 }
 
-#quit-btn::after{
+.quit-btn::after{
     content: "";
     width: 3px;
     height: 15px;
@@ -200,32 +220,14 @@ a{
     background-color: var(--colorWhite);
 }
 
-html{
-    width: 100%;
-    height: auto;
-    display: grid;
-    justify-items: center;
-}
 
-body{
-    width: 100%;
-    max-width: 1980px;
-    height: auto;
-    min-height: 100vh;
-    display: grid;
-    grid-auto-rows: min-content;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    background-color:var(--colorMainBackground);
-    position: relative;
-}
 
 #main-header{
     width: 100%;
-    height: 100px;
+    height: 120px;
     display: grid;
     grid-template-columns: 40% 1fr;
-    padding: 0 5%;
+    padding: 10px 5%;
     align-items: center;
 }
 
@@ -245,6 +247,10 @@ body{
     display: grid;
     place-items: center;
     justify-self: end;
+}
+
+#quit-menu{
+    display: none;
 }
 
 #navbar-list{
@@ -545,6 +551,7 @@ h3{
     width: 100%;
     position: absolute;
     bottom: 0;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
@@ -731,21 +738,29 @@ h3{
         animation-duration: 0.5s;
         background-color: var(--colorBackground);
         align-items: start;
-        padding-top: 80px;
+        justify-items: center;
+        grid-template-rows: 60px 1fr;
+        gap: 25px;
     }
 
     #navbar-list{
         grid-template-columns: 1fr;
         gap: 20px;
+        width: 100%;
     }
 
     .show-nav{
         display: grid !important;
     }
 
-
-
     #burguer-btn{
         display: grid;
+    }
+
+    #quit-menu{
+        display: grid;
+        justify-self: end;
+        align-self: center;
+        margin-right: 10px;
     }
 }
