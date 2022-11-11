@@ -10,25 +10,27 @@
 </head>
 <body>
     <!--Pop up-->
-    <div id="background-popup">
+    <div id="shopping-cart-popup">
         <div id="shopping-cart-frame">
             <div id="quit-btn"></div>
             <section id="product-list-section">
-                <h3>Tus productos</h3>
+                <h3>Tus Productos</h3>
                 <div id="product-list-container"></div>
             </section>
             <section id="summary">
-                <div id="subtotal-container">
+                <div id="subtotal-container" class="amount-container">
                     <p>Subtotal</p>
-                    <span id="subtotal-value"></span>
+                    <span id="subtotal-value">$1050</span>
                     <p>Envio</p>
-                    <span id="shipping-value"></span>
+                    <span id="shipping-value">Gratis</span>
                 </div>
                 <div id="separator"></div>
-                <p>Total</p>
-                <span id="total-value"></span>
+                <div id="total-contianer" class="amount-container">
+                    <p id="total-amount-label" class="total-amount">Total</p>
+                    <span id="total-value" class="total-amount">$1500</span>
+                </div>
             </section>
-            <a href="#">Comprar</a>
+            <a href="#" class="btn-style" id="buy-btn">Comprar</a>
         </div>
     </div>
     <!--End Pop up-->
@@ -45,9 +47,7 @@
                 <li class="navbar-list-item">
                     <a href="#">Home</a>
                 </li>
-                <li class="navbar-list-item">
-                    <a href="#">🛒</a>
-                </li>
+                <li class="navbar-list-item" id="show-shopping-cart-btn">🛒</li>
                 <li class="navbar-list-item">
                     <a href="#">👽</a>
                 </li>
@@ -63,7 +63,7 @@
                     <h2 class="main-subtitle">tenes Nucba.</h2>
                 </div>
                 <p class="p-hero">Buscá lo que quieras y nucba te quedes sin comida</p>
-                <a href="#" class="hero-btn">Ver más</a>
+                <a href="#" class="btn-style hero-btn">Ver más</a>
             </div>
             <div id="hero-right">
                 <div id="hero-img"></div>
