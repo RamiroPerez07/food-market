@@ -53,7 +53,7 @@ a{
 .gradient-text{
     background: linear-gradient(45deg, var(--yellow), var(--red));
     -webkit-background-clip: text;
-    color: transparent;  
+    color: transparent !important;  
 }
 
 /* POP UP style */
