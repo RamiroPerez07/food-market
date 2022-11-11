@@ -7,7 +7,8 @@ const arrayPizzas = [
         price: 350,
         score: 100,
         url_img: "./img/pit.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:2,
@@ -16,7 +17,8 @@ const arrayPizzas = [
         price: 350,
         score: 150,
         url_img: "./img/jamone.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:3,
@@ -25,7 +27,8 @@ const arrayPizzas = [
         price:380,
         score: 700,
         url_img: "./img/garcia.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:4,
@@ -34,7 +37,8 @@ const arrayPizzas = [
         price: 450,
         score: 360,
         url_img: "./img/maradona.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ const arrayPizzas = [
         price: 750,
         score: 750,
         url_img: "./img/picantovich.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id: 6,
@@ -52,7 +57,8 @@ const arrayPizzas = [
         price: 990,
         score: 160,
         url_img: "./img/hasbulla.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:7,
@@ -61,7 +67,8 @@ const arrayPizzas = [
         price: 1100,
         score: 80,
         url_img: "./img/messi.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:8,
@@ -70,7 +77,8 @@ const arrayPizzas = [
         price: 460,
         score: 170,
         url_img: "./img/nickgi.jpg",
-        category: "more popular"
+        category: "more-popular pizzas",
+        recommended: false
     },
     {
         id:9,
@@ -79,7 +87,8 @@ const arrayPizzas = [
         price: 3650,
         score: 550,
         url_img: "./img/benneziana.jpg",
-        category: "more popular"
+        category: "pizzas",
+        recommended: true
     },
     {
         id:10,
@@ -88,7 +97,8 @@ const arrayPizzas = [
         price: 870,
         score: 160,
         url_img: "./img/troncopizza.jpg",
-        category: "more popular"
+        category: "pizzas",
+        recommended: true
     },
     {
         id: 11,
@@ -97,8 +107,109 @@ const arrayPizzas = [
         price: 360,
         score: 120,
         url_img: "./img/papas-provenzal.jpg",
-        category: "more popular"
-    }
+        category: "napapuki",
+        recommended: true
+    },
+    {
+        id: 12,
+        name: "Cochinambur",
+        description: "¡Super completa!",
+        price: 1200,
+        score: 780,
+        url_img: "./img/cochina.jpg",
+        category: "hamburguesas",
+        recommended: false
+    },
+    {
+        id: 13,
+        name: "Cheddarx2",
+        description: "¡Doble sabor!",
+        price: 800,
+        score: 480,
+        url_img: "./img/doblecheddar.jpg",
+        category: "hamburguesas",
+        recommended: false
+    },
+    {
+        id: 14,
+        name: "Onion",
+        description: "Cebolla morada",
+        price: 740,
+        score: 380,
+        url_img: "./img/onionbacon.jpg",
+        category: "hamburguesas",
+        recommended: false
+    },
+    {
+        id: 15,
+        name: "Baconpleta",
+        description: "Panceta + cheddar",
+        price: 1340,
+        score: 870,
+        url_img: "./img/completa-cheddar.jpg",
+        category: "hamburguesas",
+        recommended: false
+    },
+    {
+        id: 16,
+        name: "Kiwitido",
+        description: "Sabor Kiwi natural",
+        price: 600,
+        score: 170,
+        url_img: "./img/kiwi.jpg",
+        category: "batidos",
+        recommended: false
+    },
+    {
+        id: 17,
+        name: "Duraznito",
+        description: "Sabor natural",
+        price: 600,
+        score: 270,
+        url_img: "./img/durazno.jpg",
+        category: "batidos",
+        recommended: false
+    },
+    {
+        id: 18,
+        name: "Frutos Rojos",
+        description: "Moras y Frutilla",
+        price: 600,
+        score: 570,
+        url_img: "./img/frutosrojos.jpg",
+        category: "batidos",
+        recommended: false
+    },
+    {
+        id: 19,
+        name: "Platano",
+        description: "Sabor banana",
+        price: 600,
+        score: 1170,
+        url_img: "./img/banana.jpg",
+        category: "batidos",
+        recommended: false
+    },
+    {
+        id: 20,
+        name: "Taco Cargado",
+        description: "Re picante",
+        price: 600,
+        score: 110,
+        url_img: "./img/tacocargado.jpg",
+        category: "mexican-food",
+        recommended: false
+    },
+    {
+        id: 20,
+        name: "Fritas simples",
+        description: "Papas sin aderezo",
+        price: 500,
+        score: 710,
+        url_img: "./img/simples.jpg",
+        category: "napapuki",
+        recommended: false
+    },
 ]
 
 //variables
@@ -109,10 +220,13 @@ const shoppingCartFrame = document.getElementById("shopping-cart-frame")
 const burguerBtn = document.getElementById("burguer-btn");
 const navbarFrame = document.getElementById("navbar-frame");
 const quitMenuBtn = document.getElementById("quit-menu")
+let categoriesCards = document.getElementsByClassName("categories-card")
+categoriesCards = [...categoriesCards]
 
 //variables contenedores
 const morePopularContainer = document.getElementById("more-popular-card-container")
 const categoriesContainer = document.getElementById("categories-card-container")
+const recommendationContainer = document.getElementById("recommendations-card-container")
 
 //local storage
 
@@ -146,8 +260,28 @@ function renderSelectionCard(object){
         <div class="more-popular-img" style="background-image: url('${object.url_img}')"></div>
         <h4 class="more-popular-food-name">${object.name}</h4>
         <p class="more-popular-description">${object.description}</p>
-        <span class="more-popular-price">${object.price}</span>
+        <span class="more-popular-price gradient-text">${object.price}</span>
         <button class="more-popular-btn btn-style">Agregar</button>
+    </div>
+    `
+}
+
+function renderRecommendationCard(object){
+    return `
+    <div class="recommendation-card">
+        <div class="recommendation-img" style="background-image: url('${object.url_img}')"></div>
+        <h4 class="recommendation-food-name">${object.name}</h4>
+        <p class="recommendation-description">${object.description}</p>
+        <span class="recommendation-price gradient-text">${object.price}</span>
+        <button class="btn-style recommendation-btn">Agregar</button>
+    </div>
+    `
+}
+
+function renderErrorCard(){
+    morePopularContainer.innerHTML = `
+    <div class="error-card">
+        <p class="error-card-txt">¡Próximamente!</p>
     </div>
     `
 }
@@ -159,17 +293,51 @@ function renderPizzasInSelectionContainer(arrayOfObjects){
     morePopularContainer.innerHTML = html;
 }
 
-function setSelectedCategory(event){
-    const categoryCard = event.target;
-    if (!categoryCard.classList.contains("categories-card")) return
-    const categoryValue = event.target.dataset.filter
+function searchAndRenderPizzasInRecommendationContainer(){
     const arrayPizzas = getItemFromLocalStorage("pizzas");
-    const filterPizzas = arrayPizzas.forEach(objPizza =>{
-        return objPizza.category == categoryValue;
+    const recommendedPizzas = arrayPizzas.filter(objPizza =>{
+        return objPizza.recommended == true;
+    });
+    const html = recommendedPizzas.map(obj =>{
+        return renderRecommendationCard(obj);
+    }).join("")
+    recommendationContainer.innerHTML = html;
+}
+
+function selectCategory(event){
+    let categoryCard;
+    if (!event.target.parentElement.classList.contains("categories-card") && !event.target.classList.contains("categories-card")){
+        return
+    }else if (event.target.parentElement.classList.contains("categories-card")){
+        categoryCard = event.target.parentElement;
+    }else{
+        categoryCard = event.target;
+    }
+    const categoryValue = categoryCard.dataset.filter
+
+    const filterPizzas = filterObject(categoryValue)
+
+    if(!filterPizzas.length){
+        renderErrorCard()
+        categoryCard.classList.add("selected-category");
+    }else{
+        renderPizzasInSelectionContainer(filterPizzas);
+    }
+    categoriesCards.forEach(card =>{
+        if (card.classList.contains("selected-category")){
+            card.classList.remove("selected-category")
+        }
+    })
+    categoryCard.classList.add("selected-category");
+}
+
+function filterObject(tag){
+    const arrayPizzas = getItemFromLocalStorage("pizzas");
+    const filterPizzas = arrayPizzas.filter(objPizza =>{
+        return objPizza.category.toString().includes(tag);
     })
     saveDataInLocalStorage(filterPizzas,"ult-filtro");
-    renderPizzasInSelectionContainer(filterPizzas);
-    categoryCard.classList.add("selected-category");
+    return filterPizzas;
 }
 
 
@@ -186,13 +354,15 @@ function init(){
     //Guardo el array de pizzas en el local storage (simulo que los datos vienen de una BD)
     saveDataInLocalStorage(arrayPizzas,"pizzas")
 
-    //Inicio llamando todas las pizzas del local storage
-    const arrPizzas = getItemFromLocalStorage("pizzas");
+    //muestro las pizzas recomendadas
+    searchAndRenderPizzasInRecommendationContainer()
 
+    //al principio filtro por los mas populares
+    const filterPizzas = filterObject("more-popular")
     //renderizo las pizzas mas populares
-    renderPizzasInSelectionContainer(arrPizzas);
+    renderPizzasInSelectionContainer(filterPizzas);
 
-    categoriesContainer.addEventListener("click",setSelectedCategory)
+    categoriesContainer.addEventListener("click",selectCategory)
 }
 
 init();
