@@ -50,6 +50,12 @@ a{
     text-decoration: none;
 }
 
+.gradient-text{
+    background: linear-gradient(45deg, var(--yellow), var(--red));
+    -webkit-background-clip: text;
+    color: transparent;  
+}
+
 /* POP UP style */
 
 #shopping-cart-popup{
@@ -818,6 +824,10 @@ h3{
 
 @media (max-width: 425px){
 
+    *{
+        font-size: 12px;
+    }
+
     #navbar-frame{
         display: none;
         position: fixed;
@@ -854,5 +864,9 @@ h3{
         justify-self: end;
         align-self: center;
         margin-right: 10px;
+    }
+
+    .product-card{
+        max-height: 150px ;
     }
 }
