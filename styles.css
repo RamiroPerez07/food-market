@@ -58,6 +58,13 @@ body{
     background: linear-gradient(45deg, var(--yellow), var(--red));
     border: none;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-style:hover{
+    background: var(--red);
+    transition: all 1s;
+    box-shadow: 0px 0px 3px 0px var(--red);
 }
 
 a{
@@ -314,6 +321,18 @@ a{
     place-items: center;
 }
 
+#view-more-products{
+    font-size: var(--fs-small0);
+    font-weight: var(--fw-normal);
+    color: var(--colorWhiteOp);
+    transition: 0.5s;
+    justify-self: center;
+}
+
+#view-more-products:hover{
+    color: var(--colorWhite);
+    transition: 0.5s;
+}
 
 
 /* hide burguer-btn*/

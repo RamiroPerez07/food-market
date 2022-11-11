@@ -28,8 +28,9 @@ function init(){
     hideShoppingCartBtn.addEventListener("click", toggleShoppingCart)
     burguerBtn.addEventListener("click", showMenu);
     quitMenuBtn.addEventListener("click", showMenu);
-    window.addEventListener("scroll", hideMenu)
-    navbarFrame.addEventListener("click", hideMenu)
+    window.addEventListener("scroll", hideMenu);
+    navbarFrame.addEventListener("click", hideMenu);
+    
 }
 
 init();
