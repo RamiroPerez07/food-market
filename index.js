@@ -452,10 +452,11 @@ function addProductToShoppingCart(event){
     }   
     arrayPizzasInShoppingCart = [...arrayPizzasInShoppingCart, ArrayObjProduct[0]] //me devuelve un array, por eso elijo el objeto en posicion 1
 
-    //actualizo el contador
-    updateCartCounter()
+
 
     saveDataInLocalStorage(arrayPizzasInShoppingCart,"products-in-shopping-cart"); 
+    //actualizo el contador
+    updateCartCounter()
     showMsg("El producto "+ArrayObjProduct[0].name + "se agregó al carrito.")
 }
 
