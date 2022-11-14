@@ -276,6 +276,14 @@ const categoriesContainer = document.getElementById("categories-card-container")
 const recommendationContainer = document.getElementById("recommendations-card-container")
 const shoppingCartContainer = document.getElementById("product-list-container");
 
+//carteles popup con mensajes
+const alertPop = document.getElementById("message-alert-bg");
+const questionPop = document.getElementById("message-y-n-bg");
+const msgYesNo = document.getElementById("message-y-n-text");
+const msgAlert = document.getElementById("message-alert-text");
+const alertFrame = document.getElementById("message-alert-frame");
+const yesNoFrame = document.getElementById("message-y-n-frame")
+
 //costo del envio
 const shippingCost = 200;
 
@@ -437,18 +445,53 @@ function addProductToShoppingCart(event){
     const repeatedId = arrayPizzasInShoppingCart.find(pizza =>{
         return pizza.id == idProduct
     })
-    if (repeatedId) return (console.log("error - el producto ya se encuentra en el carrito!"))
+    if (repeatedId){
+        showMsg("El producto ya fue agregado al carrito.")
+        return;  
+    }   
     arrayPizzasInShoppingCart = [...arrayPizzasInShoppingCart, ArrayObjProduct[0]] //me devuelve un array, por eso elijo el objeto en posicion 1
     saveDataInLocalStorage(arrayPizzasInShoppingCart,"products-in-shopping-cart"); 
+    showMsg("El producto "+ArrayObjProduct[0].name + "se agregó al carrito.")
 }
 
+function showMsg(msg){
+    window.scroll(0,0); //me dirige arriba de la pagina
+    alertPop.classList.toggle("show-msg");
+    msgAlert.textContent = msg;
+}
+
+function showQuestion(question){
+    window.scroll(0,0);
+    questionPop.classList.toggle("show-msg");
+    msgYesNo.textContent = question;
+    yesNoFrame.addEventListener("click", function(event){
+        closeYesNoMsg(event)
+    })
+}
+
+function closeAlertMsg(event){
+    if(!event.target.classList.contains("btn-style")) return
+    alertPop.classList.toggle("show-msg");
+}
+
+function closeYesNoMsg(event){
+    if(!event.target.classList.contains("btn-style")) return
+    let res = true;
+    if (event.target.dataset.res == 0){
+        res = false
+    }
+    return res;
+}
+
+
+
 function quitProductFromShoppingCart(idProduct){
+    const res = confirm("¿Desea eliminar el producto del carrito?")
+    if (!res) return
     const productsInShoppingCart = getItemFromLocalStorage("products-in-shopping-cart")
-    console.log(idProduct)
     const updatedListOfProducts = productsInShoppingCart.filter(obj =>{
         return obj.id != idProduct;
     })
-    console.log(updatedListOfProducts)
     saveDataInLocalStorage(updatedListOfProducts,"products-in-shopping-cart")
     renderProductsInShoppingCart(updatedListOfProducts);
     calculateSubtotal();
@@ -520,7 +563,12 @@ function calculateSubtotal(){
 }
 
 function executePurchase(){
-    console.log("comprar")
+    const productsInShoppingCart = getItemFromLocalStorage("products-in-shopping-cart")
+    if (!productsInShoppingCart.length){
+        showMsg("Debes agregar al menos 1 producto para comprar")
+        return
+    }
+    showQuestion("¿Acepta realizar la compra por el total de "+totalField.textContent)
 }
 
 
@@ -551,6 +599,22 @@ function init(){
     shoppingCartContainer.addEventListener("click",changeQuantity);
     btnBuy.addEventListener("click",executePurchase);
     btnViewMoreProducts.addEventListener("click", toggleShoppingCart);
+
+    //interacciones con los mensajes
+    alertFrame.addEventListener("click", closeAlertMsg)
+    yesNoFrame.addEventListener("click", function(event){
+        const res = closeYesNoMsg(event);
+        if (res == 0){
+            questionPop.classList.toggle("show-msg");
+        }else{
+            questionPop.classList.toggle("show-msg");
+            saveDataInLocalStorage([],"products-in-shopping-cart");
+            renderProductsInShoppingCart([]);
+            calculateSubtotal();
+            showMsg("Gracias por tu compra!");
+        }
+        
+    })
 }
 
 init();
