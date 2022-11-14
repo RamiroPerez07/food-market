@@ -457,7 +457,7 @@ function addProductToShoppingCart(event){
     saveDataInLocalStorage(arrayPizzasInShoppingCart,"products-in-shopping-cart"); 
     //actualizo el contador
     updateCartCounter()
-    showMsg("El producto "+ArrayObjProduct[0].name + "se agregó al carrito.")
+    showMsg("El producto "+ArrayObjProduct[0].name + " se agregó al carrito.")
 }
 
 function showMsg(msg){
