@@ -19,39 +19,18 @@
                 <h3>Tus Productos</h3>
                 <div id="product-list-container">
                     <!--Template list Products Card
-                    <div class="product-card">
-                        <div class="product-img"></div>
-                        <h4 class="product-name">Lorem, ipsum.</h4>
-                        <p class="product-desc">Lorem, ipsum dolor.</p>
-                        <span class="product-price">Lorem.</span>
+                    <div class="product-card" data-id="${object.id}">
+                        <div class="product-img" style="background-image: url('${object.url_img}')"></div>
+                        <h4 class="product-name">${object.name}</h4>
+                        <p class="product-desc">${object.description}</p>
+                        <span class="product-price">${object.price}</span>
+                        <div class="quit-btn quit-product"></div>
                         <div class="quantity-container">
-                            <div class="quantity-controllers btn-style btn-disable">-</div>
-                            <span class="quantity">1</span>
-                            <div class="quantity-controllers btn-style">+</div>
+                            <div class="less quantity-controllers btn-style ${object.quantity==1?"btn-disabled":""}">-</div>
+                            <span class="quantity">${object.quantity}</span>
+                            <div class="more quantity-controllers btn-style ${object.quantity == object.stock?"btn-disabled":""}">+</div>
                         </div>
                     </div>-->
-                    <div class="product-card">
-                        <div class="product-img"></div>
-                        <h4 class="product-name">Lorem, ipsum.</h4>
-                        <p class="product-desc">Lorem, ipsum dolor.</p>
-                        <span class="product-price gradient-text">Lorem.</span>
-                        <div class="quantity-container">
-                            <div class="quantity-controllers btn-style btn-disable">-</div>
-                            <span class="quantity">1</span>
-                            <div class="quantity-controllers btn-style">+</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img"></div>
-                        <h4 class="product-name">Lorem, ipsum.</h4>
-                        <p class="product-desc">Lorem, ipsum dolor.</p>
-                        <span class="product-price gradient-text">Lorem.</span>
-                        <div class="quantity-container">
-                            <div class="quantity-controllers btn-style btn-disable">-</div>
-                            <span class="quantity">1</span>
-                            <div class="quantity-controllers btn-style">+</div>
-                        </div>
-                    </div>
                 </div>
             </section>
             <section id="summary">
@@ -68,7 +47,7 @@
                 </div>
             </section>
             <a href="#" class="btn-style" id="buy-btn">Comprar</a>
-            <a href="#" id="view-more-products">Ver más productos</a>
+            <a href="#more-popular-section" id="view-more-products">Ver más productos</a>
         </div>
     </div>
     <!--End Pop up-->
@@ -102,7 +81,7 @@
                     <h2 class="main-subtitle">tenes Nucba.</h4>
                 </div>
                 <p class="p-hero">Buscá lo que quieras y nucba te quedes sin comida</p>
-                <a href="#" class="btn-style hero-btn">Ver más</a>
+                <a href="#more-popular-section" class="btn-style hero-btn">Ver más</a>
             </div>
             <div id="hero-right">
                 <div id="hero-img"></div>
@@ -112,34 +91,13 @@
             <h3>Hoy te recomendamos</h3>
             <div id="recommendations-card-container" class="container">
                 <!--Template card reccomendation
-                <div class="recommendation-card">
-                    <div class="recommendation-img"></div>
-                    <h4 class="recommendation-food-name">Lorem ipsum</h4>
-                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
-                    <span class="recommendation-price">Lorem.</span>
-                    <button class="btn-style recommendation-btn">Agregar</button>
+                <div class="recommendation-card card" data-id="${object.id}">
+                    <div class="recommendation-img" style="background-image: url('${object.url_img}')"></div>
+                    <h4 class="recommendation-food-name">${object.name}</h4>
+                    <p class="recommendation-description">${object.description}</p>
+                    <span class="recommendation-price gradient-text">${object.price}</span>
+                    <button class="btn-style recommendation-btn btn-add-product">Agregar</button>
                 </div>-->
-                <div class="recommendation-card">
-                    <div class="recommendation-img"></div>
-                    <h4 class="recommendation-food-name">Lorem ipsum</h4>
-                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
-                    <span class="recommendation-price gradient-text">Lorem.</span>
-                    <button class="btn-style recommendation-btn">Agregar</button>
-                </div>
-                <div class="recommendation-card">
-                    <div class="recommendation-img"></div>
-                    <h4 class="recommendation-food-name">Lorem ipsum</h4>
-                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
-                    <span class="recommendation-price gradient-text">Lorem.</span>
-                    <button class="btn-style recommendation-btn">Agregar</button>
-                </div>
-                <div class="recommendation-card">
-                    <div class="recommendation-img"></div>
-                    <h4 class="recommendation-food-name">Lorem ipsum</h4>
-                    <p class="recommendation-description">Lorem, ipsum dolor.</p>
-                    <span class="recommendation-price gradient-text">Lorem.</span>
-                    <button class="btn-style recommendation-btn">Agregar</button>
-                </div>
             </div>
         </section>
         <section id="categories-section" class="section-style1">
@@ -192,69 +150,13 @@
             <h3>Los mas populares</h3>
             <div id="more-popular-card-container" class="container">
                 <!--Template more popular card
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
+                <div class="more-popular-card card" data-id="${object.id}">
+                    <div class="more-popular-img" style="background-image: url('${object.url_img}')"></div>
+                    <h4 class="more-popular-food-name">${object.name}</h4>
+                    <p class="more-popular-description">${object.description}</p>
+                    <span class="more-popular-price gradient-text">${object.price}</span>
+                    <button class="more-popular-btn btn-style btn-add-product">Agregar</button>
                 </div>-->
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
-                <div class="more-popular-card">
-                    <div class="more-popular-img"></div>
-                    <h4 class="more-popular-food-name">Lorem, ipsum.</h4>
-                    <p class="more-popular-description">Lorem, ipsum dolor.</p>
-                    <span class="more-popular-price gradient-text">Lorem.</span>
-                    <button class="more-popular-btn btn-style">Agregar</button>
-                </div>
             </div>
         </section>
     </main>

@@ -36,6 +36,8 @@ html{
     height: auto;
     display: grid;
     justify-items: center;
+    scroll-behavior: smooth;
+    scroll-padding-top: 40px;
 }
 
 body{
@@ -206,6 +208,9 @@ a{
     width: 50px;
     height: 50px;
     background-color: var(--colorWhite);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .product-name{
@@ -241,7 +246,7 @@ a{
     width: 95px;
     height: 50px;
     grid-column: 3/4;
-    grid-row: 1/4;
+    grid-row: 2/4;
     place-items: center;
 }
 
@@ -255,7 +260,7 @@ a{
     padding: 3px;
 }
 
-.btn-disable{
+.btn-disabled{
     cursor: not-allowed;
     filter:grayscale(1.2);
 }
@@ -264,6 +269,12 @@ a{
     color: var(--colorWhite);
     font-size: var(--fs-medium1);
     font-weight: var(--fw-bold);
+}
+
+.quit-product{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: end;
 }
 
 #summary{
