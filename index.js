@@ -325,7 +325,7 @@ function renderSelectionCard(object){
         <div class="more-popular-img" style="background-image: url('${object.url_img}')"></div>
         <h4 class="more-popular-food-name">${object.name}</h4>
         <p class="more-popular-description">${object.description}</p>
-        <span class="more-popular-price gradient-text">${object.price}</span>
+        <span class="more-popular-price gradient-text">$ ${object.price}</span>
         <button class="more-popular-btn btn-style btn-add-product">Agregar</button>
     </div>
     `
@@ -337,7 +337,7 @@ function renderRecommendationCard(object){
         <div class="recommendation-img" style="background-image: url('${object.url_img}')"></div>
         <h4 class="recommendation-food-name">${object.name}</h4>
         <p class="recommendation-description">${object.description}</p>
-        <span class="recommendation-price gradient-text">${object.price}</span>
+        <span class="recommendation-price gradient-text">$ ${object.price}</span>
         <button class="btn-style recommendation-btn btn-add-product">Agregar</button>
     </div>
     `
@@ -349,7 +349,7 @@ function renderProducts(object){
         <div class="product-img" style="background-image: url('${object.url_img}')"></div>
         <h4 class="product-name">${object.name}</h4>
         <p class="product-desc">${object.description}</p>
-        <span class="product-price">${object.price}</span>
+        <span class="product-price">$ ${object.price}</span>
         <div class="quit-btn quit-product"></div>
         <div class="quantity-container">
             <div class="less quantity-controllers btn-style ${object.quantity==1?"btn-disabled":""}">-</div>
