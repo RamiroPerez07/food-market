@@ -451,10 +451,10 @@ function addProductToShoppingCart(event){
         return;  
     }   
     arrayPizzasInShoppingCart = [...arrayPizzasInShoppingCart, ArrayObjProduct[0]] //me devuelve un array, por eso elijo el objeto en posicion 1
-    if (!cartCounter.classList.contains("show-cart-counter")){
-        cartCounter.classList.add("show-cart-counter");
-    }
-    cartCounter.textContent = `${arrayPizzasInShoppingCart.length}`
+
+    //actualizo el contador
+    updateCartCounter()
+
     saveDataInLocalStorage(arrayPizzasInShoppingCart,"products-in-shopping-cart"); 
     showMsg("El producto "+ArrayObjProduct[0].name + "se agregó al carrito.")
 }
@@ -500,12 +500,9 @@ function quitProductFromShoppingCart(idProduct){
     saveDataInLocalStorage(updatedListOfProducts,"products-in-shopping-cart")
     renderProductsInShoppingCart(updatedListOfProducts);
     calculateSubtotal();
-    if (!updatedListOfProducts.length){
-        cartCounter.classList.remove("show-cart-counter");
-        cartCounter.textContent = ""
-        return;
-    }
-    cartCounter.textContent = `${updatedListOfProducts.length}`
+
+    //acutalizo el contador
+    updateCartCounter()
 }
 
 
@@ -541,8 +538,12 @@ function changeQuantity(event){
         }
         return obj;
     })
+
+
     saveDataInLocalStorage(updateProductsInShoppingCart, "products-in-shopping-cart")
     renderProductsInShoppingCart(updateProductsInShoppingCart);
+    //actualizo el contador
+    updateCartCounter()
 
     //ahora lo que hay que hacer es actualizar el subtotal, pero eso será a través de otra funcion
     calculateSubtotal()
@@ -582,6 +583,22 @@ function executePurchase(){
     showQuestion("¿Acepta realizar la compra por el total de "+totalField.textContent)
 }
 
+function updateCartCounter(){
+    const productsInShoppingCart = getItemFromLocalStorage("products-in-shopping-cart")
+    if (!productsInShoppingCart.length){
+        cartCounter.classList.remove("show-cart-counter");
+        cartCounter.textContent = ""
+        return
+    }else if(!cartCounter.classList.contains("show-cart-counter")){
+        cartCounter.classList.add("show-cart-counter")
+    }
+    let counter = 0
+    productsInShoppingCart.forEach(obj => {
+        counter = counter + obj.quantity
+    })
+    cartCounter.textContent = counter;
+}
+
 
 function init(){
 
@@ -612,11 +629,7 @@ function init(){
     btnViewMoreProducts.addEventListener("click", toggleShoppingCart);
 
     //detalle estetico en el carrito
-    const productsInShoppingCart = getItemFromLocalStorage("products-in-shopping-cart");
-    if (productsInShoppingCart.length){
-        cartCounter.classList.add("show-cart-counter");
-        cartCounter.textContent = ""+productsInShoppingCart.length
-    }
+    updateCartCounter()
 
     //interacciones con los mensajes
     alertFrame.addEventListener("click", closeAlertMsg)
@@ -629,8 +642,10 @@ function init(){
             saveDataInLocalStorage([],"products-in-shopping-cart");
             renderProductsInShoppingCart([]);
             calculateSubtotal();
-            cartCounter.classList.remove("show-cart-counter");
-            cartCounter.textContent = ""
+
+            //actualizo el contador
+            updateCartCounter();
+
             showMsg("Gracias por tu compra!");
         }
         
