@@ -268,7 +268,8 @@ const subtotalField = document.getElementById("subtotal-value");
 const shippingField = document.getElementById("shipping-value");
 const totalField = document.getElementById("total-value")
 const btnBuy = document.getElementById("buy-btn");
-const btnViewMoreProducts = document.getElementById("view-more-products")
+const btnViewMoreProducts = document.getElementById("view-more-products");
+const cartCounter = document.getElementById("cart-q")
 
 //variables contenedores
 const morePopularContainer = document.getElementById("more-popular-card-container")
@@ -282,7 +283,7 @@ const questionPop = document.getElementById("message-y-n-bg");
 const msgYesNo = document.getElementById("message-y-n-text");
 const msgAlert = document.getElementById("message-alert-text");
 const alertFrame = document.getElementById("message-alert-frame");
-const yesNoFrame = document.getElementById("message-y-n-frame")
+const yesNoFrame = document.getElementById("message-y-n-frame");
 
 //costo del envio
 const shippingCost = 200;
@@ -450,6 +451,10 @@ function addProductToShoppingCart(event){
         return;  
     }   
     arrayPizzasInShoppingCart = [...arrayPizzasInShoppingCart, ArrayObjProduct[0]] //me devuelve un array, por eso elijo el objeto en posicion 1
+    if (!cartCounter.classList.contains("show-cart-counter")){
+        cartCounter.classList.add("show-cart-counter");
+    }
+    cartCounter.textContent = `${arrayPizzasInShoppingCart.length}`
     saveDataInLocalStorage(arrayPizzasInShoppingCart,"products-in-shopping-cart"); 
     showMsg("El producto "+ArrayObjProduct[0].name + "se agregó al carrito.")
 }
@@ -495,6 +500,12 @@ function quitProductFromShoppingCart(idProduct){
     saveDataInLocalStorage(updatedListOfProducts,"products-in-shopping-cart")
     renderProductsInShoppingCart(updatedListOfProducts);
     calculateSubtotal();
+    if (!updatedListOfProducts.length){
+        cartCounter.classList.remove("show-cart-counter");
+        cartCounter.textContent = ""
+        return;
+    }
+    cartCounter.textContent = `${updatedListOfProducts.length}`
 }
 
 
@@ -600,6 +611,13 @@ function init(){
     btnBuy.addEventListener("click",executePurchase);
     btnViewMoreProducts.addEventListener("click", toggleShoppingCart);
 
+    //detalle estetico en el carrito
+    const productsInShoppingCart = getItemFromLocalStorage("products-in-shopping-cart");
+    if (productsInShoppingCart.length){
+        cartCounter.classList.add("show-cart-counter");
+        cartCounter.textContent = ""+productsInShoppingCart.length
+    }
+
     //interacciones con los mensajes
     alertFrame.addEventListener("click", closeAlertMsg)
     yesNoFrame.addEventListener("click", function(event){
@@ -611,6 +629,8 @@ function init(){
             saveDataInLocalStorage([],"products-in-shopping-cart");
             renderProductsInShoppingCart([]);
             calculateSubtotal();
+            cartCounter.classList.remove("show-cart-counter");
+            cartCounter.textContent = ""
             showMsg("Gracias por tu compra!");
         }
         
